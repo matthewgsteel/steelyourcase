@@ -1,0 +1,89 @@
+:root {
+  --anthem-bg: rgba(4, 4, 3, 0.92);
+  --anthem-border: rgba(184, 151, 97, 0.55);
+  --anthem-text: #e8ddc8;
+  --anthem-gold: #b89761;
+  --anthem-muted: #b9a27d;
+}
+
+.steel-anthem {
+  position: fixed;
+  left: 1rem;
+  bottom: 6.75rem;
+  z-index: 35;
+  width: min(22rem, calc(100vw - 2rem));
+}
+
+.steel-anthem__shell {
+  border-radius: 1.25rem;
+  border: 1px solid var(--anthem-border);
+  background: linear-gradient(180deg, rgba(7, 7, 6, 0.94), rgba(20, 15, 10, 0.92));
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.36);
+  padding: 0.9rem 1rem;
+}
+
+.steel-anthem__title,
+.steel-anthem__actions button {
+  border: 0;
+  background: none;
+  color: var(--anthem-text);
+}
+
+.steel-anthem__title {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  gap: 0.2rem;
+  padding: 0;
+}
+
+.steel-anthem__title small,
+.steel-anthem__status,
+.steel-anthem__privacy {
+  color: var(--anthem-muted);
+}
+
+.steel-anthem__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.steel-anthem__actions button {
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 151, 97, 0.22);
+}
+
+.steel-anthem__panel {
+  margin-top: 0.8rem;
+}
+
+.steel-anthem__player {
+  min-height: 166px;
+}
+
+.steel-anthem__player iframe {
+  border-radius: 1rem;
+}
+
+@media (max-width: 720px) {
+  .steel-anthem {
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+    bottom: 12.25rem;
+  }
+}
+
+body[data-site-path='/contact/'] .steel-anthem {
+  bottom: 1rem;
+  width: min(14rem, calc(100vw - 2rem));
+}
+
+body[data-site-path='/contact/'] .steel-anthem__actions,
+body[data-site-path='/contact/'] .steel-anthem__panel,
+body[data-site-path='/contact/'] .steel-anthem__status {
+  display: none;
+}

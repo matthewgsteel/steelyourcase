@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema } from '@/lib/seo';
+import { legalDisclaimers } from '@/lib/site';
+
+const disclaimerEntries = [
+  ['General disclaimer', legalDisclaimers.footer],
+  ['Immigration disclaimer', legalDisclaimers.immigration],
+  ['Employment immigration disclaimer', legalDisclaimers.employment],
+  ['Federal court disclaimer', legalDisclaimers.federalCourt],
+  ['Credit repair disclaimer', legalDisclaimers.creditRepair],
+  ['Traffic ticket disclaimer', legalDisclaimers.traffic],
+  ['Notary disclaimer', legalDisclaimers.notary],
+  ['Assistant disclaimer', legalDisclaimers.assistant],
+  ['Cloud and privacy disclaimer', legalDisclaimers.privacy],
+];
+---
+
+<BaseLayout
+  title="Legal Disclaimers"
+  description="General informational, privacy, assistant, immigration, employment, credit repair, traffic, and notary disclaimers for steelyourcase.com."
+  path="/legal-disclaimers/"
+  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/legal-disclaimers/', label: 'Legal Disclaimers' }])]}
+>
+  <section class="page-hero container">
+    <div class="page-hero__content">
+      <p class="hero-kicker">General informational limits</p>
+      <h1>Legal disclaimers</h1>
+      <p class="page-subhead">
+        This page collects the site-wide language that defines what the public website, the intake
+        form, and the assistant do and do not do.
+      </p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="content-flow">
+      {disclaimerEntries.map(([title, body]) => (
+        <article class="content-block">
+          <h2>{title}</h2>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

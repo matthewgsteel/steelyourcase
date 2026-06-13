@@ -1,0 +1,30 @@
+<section class="steel-anthem" data-steel-anthem>
+  <div class="steel-anthem__shell" data-steel-anthem-shell>
+    <button class="steel-anthem__title" type="button" data-anthem-toggle-panel aria-expanded="false">
+      <span>Steel Your Case Anthem</span>
+      <small>Studio Anthem Mix</small>
+    </button>
+
+    <div class="steel-anthem__actions">
+      <button type="button" data-anthem-play>Play</button>
+      <button type="button" data-anthem-pause>Pause</button>
+      <button type="button" data-anthem-mute>Sound Off</button>
+      <button type="button" data-anthem-hide>Hide</button>
+    </div>
+
+    <p class="steel-anthem__status" data-anthem-status>
+      Tap to play the Steel Your Case anthem.
+    </p>
+
+    <div class="steel-anthem__panel" data-anthem-panel hidden>
+      <div class="steel-anthem__player" data-anthem-player-slot></div>
+      <p class="steel-anthem__privacy">
+        SoundCloud media loads only when you choose to play or open the embedded player.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import '@/scripts/steel-anthem';
+</script>

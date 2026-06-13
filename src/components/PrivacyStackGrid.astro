@@ -1,0 +1,12 @@
+---
+import { privacyTools } from '@/lib/site';
+---
+
+<section class="privacy-grid">
+  {privacyTools.map((tool) => (
+    <article class="privacy-card">
+      <h3>{tool.title}</h3>
+      <p>{tool.copy}</p>
+    </article>
+  ))}
+</section>

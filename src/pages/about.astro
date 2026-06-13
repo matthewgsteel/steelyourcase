@@ -1,0 +1,72 @@
+---
+import CTA from '@/components/CTA.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema } from '@/lib/seo';
+import { firm } from '@/lib/site';
+---
+
+<BaseLayout
+  title="About"
+  description="Matthew G. Steel is the founder of Steel & Associates, A Professional Law Corporation, based in Gretna, Louisiana and built around disciplined record work."
+  path="/about/"
+  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/about/', label: 'About' }])]}
+>
+  <section class="page-hero container">
+    <div class="page-hero__content">
+      <p class="hero-kicker">Attorney and firm story</p>
+      <h1>{firm.attorney}</h1>
+      <p class="page-subhead">
+        Immigration lawyer and founder of {firm.name}, based in Gretna, Louisiana and built around
+        language, culture, family, systems, and careful record work.
+      </p>
+    </div>
+    <aside class="page-summary-card">
+      <h2>Practice focus</h2>
+      <ul>
+        <li>Family immigration and humanitarian relief</li>
+        <li>Removal defense and urgent record review</li>
+        <li>Employment immigration and business-facing workflows</li>
+        <li>Consumer-facing credit, traffic, and notary intake lanes</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="content-grid container">
+    <div class="content-flow">
+      <article class="content-block">
+        <h2>Local roots, federal reach</h2>
+        <p>
+          The firm is rooted in the New Orleans and Westbank area, but immigration work often
+          reaches far past one city line. The office is built to move between local relationships,
+          multilingual intake, and federal systems without turning the client into a data dump.
+        </p>
+      </article>
+      <article class="content-block">
+        <h2>Record-first by design</h2>
+        <p>
+          The point is not performance. The point is a record that can survive a review, a filing,
+          a deadline, an audit, a court date, or a follow-up without collapsing under loose facts.
+        </p>
+      </article>
+      <article class="content-block">
+        <h2>Private systems behind public work</h2>
+        <p>
+          The public website is only the front room. Behind it is a more disciplined operating stack
+          for communication, storage, scheduling, credentials, drafting, and internal review.
+        </p>
+      </article>
+    </div>
+
+    <aside class="sidebar-panel">
+      <h2>Visit the office</h2>
+      <p>{firm.addressLines[0]}</p>
+      <p>{firm.addressLines[1]}</p>
+      <a class="button button-secondary" href="/contact/">Schedule a Consultation</a>
+    </aside>
+  </section>
+
+  <CTA
+    title="Need the next move, not a speech?"
+    copy="Use the secure contact form when the matter needs review, a deadline triage, or a clear route into the office."
+  />
+</BaseLayout>

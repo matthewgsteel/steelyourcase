@@ -1,0 +1,71 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema } from '@/lib/seo';
+import { firm, legalDisclaimers } from '@/lib/site';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Privacy policy for steelyourcase.com covering site analytics, form routing, assistant intake, SoundCloud embeds, and secure operations."
+  path="/privacy-policy/"
+  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/privacy-policy/', label: 'Privacy Policy' }])]}
+>
+  <section class="page-hero container">
+    <div class="page-hero__content">
+      <p class="hero-kicker">Website privacy</p>
+      <h1>Privacy policy</h1>
+      <p class="page-subhead">
+        This website is built to reduce unnecessary exposure. It still uses the public internet, so
+        some processing is unavoidable when you browse, submit a form, or interact with embedded media.
+      </p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="content-flow">
+      <article class="content-block">
+        <h2>Information collected</h2>
+        <p>
+          The website may receive standard request data that Cloudflare necessarily processes to
+          serve pages and protect the site. The public contact form and assistant are designed to
+          collect only the minimum information needed to route a matter for review.
+        </p>
+      </article>
+      <article class="content-block">
+        <h2>Contact form and assistant</h2>
+        <p>
+          Contact form submissions and assistant routing are protected with Cloudflare Turnstile.
+          The site does not send assistant message content to web analytics. Contact messages are
+          routed for review and should not include highly sensitive records through the public form.
+        </p>
+      </article>
+      <article class="content-block">
+        <h2>Analytics</h2>
+        <p>
+          Cloudflare Web Analytics may be used for privacy-first site metrics. Chat content is not
+          sent to analytics. The site does not use Google Analytics, Meta Pixel, TikTok Pixel, or
+          similar invasive ad tracking by default.
+        </p>
+      </article>
+      <article class="content-block">
+        <h2>Embedded SoundCloud media</h2>
+        <p>
+          This website may embed media from SoundCloud. When embedded media loads or plays,
+          SoundCloud may receive information such as your IP address, browser information, and
+          interaction with the embedded player. You may use the site without interacting with the
+          embedded media.
+        </p>
+      </article>
+      <article class="content-block">
+        <h2>Contact</h2>
+        <p>
+          Questions about this policy can be directed to <a href={`mailto:${firm.email}`}>{firm.email}</a>.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="notice-strip container">
+    <p>{legalDisclaimers.privacy}</p>
+  </section>
+</BaseLayout>

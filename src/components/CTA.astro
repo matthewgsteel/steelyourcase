@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  copy: string;
+  href?: string;
+  label?: string;
+}
+
+const { title, copy, href = '/contact/', label = 'Schedule a Consultation' } = Astro.props;
+---
+
+<section class="cta-panel container">
+  <div>
+    <p class="hero-kicker">The next move</p>
+    <h2>{title}</h2>
+    <p>{copy}</p>
+  </div>
+  <a class="button button-primary" href={href}>{label}</a>
+</section>

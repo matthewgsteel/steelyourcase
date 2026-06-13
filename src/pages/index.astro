@@ -1,11 +1,93 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import CTA from '@/components/CTA.astro';
+import Hero from '@/components/Hero.astro';
+import PracticeCard from '@/components/PracticeCard.astro';
+import PrivacyStackGrid from '@/components/PrivacyStackGrid.astro';
+import SealDivider from '@/components/SealDivider.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { organizationSchema } from '@/lib/seo';
+import { homeSections, practiceCards, steelMethod } from '@/lib/site';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout
+  title="Immigration, Credit Repair, Traffic Tickets & Notary | Steel & Associates, A Professional Law Corporation"
+  description="Steel & Associates, A Professional Law Corporation in Gretna, Louisiana helps clients with immigration, credit repair, Louisiana traffic tickets, and notary services through clear strategy, clean records, and secure systems."
+  path="/"
+  schemas={organizationSchema()}
+>
+  <Hero {...homeSections.hero} />
+
+  <section class="container">
+    <div class="practice-grid">
+      {practiceCards.map((card) => (
+        <PracticeCard {...card} />
+      ))}
+    </div>
+  </section>
+
+  <SealDivider />
+
+  <section class="container">
+    <div class="content-block">
+      <p class="hero-kicker">The Steel Method</p>
+      <h2 class="section-heading">{homeSections.steelMethod.title}</h2>
+      <p>{homeSections.steelMethod.copy}</p>
+      <div class="steel-method-grid">
+        {steelMethod.map((step) => (
+          <article class="steel-method-card">
+            <h3>{step.title}</h3>
+            <p>{step.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="content-block">
+      <p class="hero-kicker">Flagship immigration work</p>
+      <h2 class="section-heading">{homeSections.deeperImmigration.title}</h2>
+      <p>{homeSections.deeperImmigration.copy}</p>
+      <div class="feature-links">
+        {homeSections.deeperImmigration.links.map((item) => (
+          <a class="feature-link-card" href={item.href}>
+            <h3>{item.label}</h3>
+            <p>Start with the record, the deadline, and the right lane.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="content-grid">
+      <div class="content-block">
+        <p class="hero-kicker">Privacy-first law firm</p>
+        <h2 class="section-heading">{homeSections.privacy.title}</h2>
+        <p>{homeSections.privacy.copy}</p>
+        <a class="button button-secondary" href={homeSections.privacy.cta.href}>
+          {homeSections.privacy.cta.label}
+        </a>
+      </div>
+      <PrivacyStackGrid />
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="content-block">
+      <p class="hero-kicker">Multilingual reach</p>
+      <h2 class="section-heading">{homeSections.languages.title}</h2>
+      <p>{homeSections.languages.copy}</p>
+      <ul class="trust-strip">
+        {homeSections.languages.list.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CTA
+    title={homeSections.footerCta}
+    copy="Use the secure intake lane to route immigration, credit repair, Louisiana traffic ticket, or notary matters for review."
+  />
+</BaseLayout>

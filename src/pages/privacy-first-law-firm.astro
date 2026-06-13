@@ -1,0 +1,67 @@
+---
+import CTA from '@/components/CTA.astro';
+import PrivacyStackGrid from '@/components/PrivacyStackGrid.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema } from '@/lib/seo';
+import { legalDisclaimers, privacyTools } from '@/lib/site';
+---
+
+<BaseLayout
+  title="A Privacy-First Law Firm Operating Stack"
+  description="A client-facing look at the privacy-first stack behind communications, files, scheduling, credentials, research, and internal work product."
+  path="/privacy-first-law-firm/"
+  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/privacy-first-law-firm/', label: 'Privacy Stack' }])]}
+>
+  <section class="page-hero container">
+    <div class="page-hero__content">
+      <p class="hero-kicker">Secure operating stack</p>
+      <h1>A privacy-first law firm operating stack</h1>
+      <p class="page-subhead">
+        A legal file carries names, histories, addresses, records, documents, deadlines, and fear.
+        The firm’s operating stack is designed to reduce unnecessary exposure across communication,
+        storage, scheduling, credentials, research, and internal work product.
+      </p>
+    </div>
+    <aside class="page-summary-card">
+      <h2>What this stack is for</h2>
+      <ul>
+        <li>Reduce unnecessary exposure across communication and storage</li>
+        <li>Keep credential, calendar, document, and note workflows compartmentalized</li>
+        <li>Support attorney-reviewed drafting and research without public overreach</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="container">
+    <PrivacyStackGrid />
+  </section>
+
+  <section class="container">
+    <div class="content-block">
+      <h2 class="section-heading">What the public assistant is built around</h2>
+      <p>
+        The public Record Room assistant is aligned with the firm’s Proton and Lumo operating stack,
+        but the public widget does not depend on a fragile private session, does not expose Proton
+        credentials, and does not claim that AI replaces legal review. Today it routes intake through
+        approved static rules. Future Lumo API work stays behind explicit approval and a separate adapter.
+      </p>
+      <div class="feature-links">
+        {privacyTools.slice(12, 16).map((tool) => (
+          <article class="feature-link-card">
+            <h3>{tool.title}</h3>
+            <p>{tool.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="notice-strip container">
+    <p>{legalDisclaimers.privacy}</p>
+  </section>
+
+  <CTA
+    title="Need the file reviewed without extra noise?"
+    copy="Use the secure intake lane when the matter needs review, document control, or timing triage."
+  />
+</BaseLayout>

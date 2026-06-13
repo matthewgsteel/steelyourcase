@@ -1,46 +1,75 @@
-# Astro Starter Kit: Basics
+# SteelYourCase
 
-```sh
-npm create astro@latest -- --template basics
+Static-first Astro site for `steelyourcase.com`, prepared for Cloudflare Pages with Pages Functions, preview gating, and a probe-gated Proton SMTP lane.
+
+## What is included
+
+- Public marketing and intake pages for immigration, credit repair, traffic tickets, notary, privacy stack, and multilingual routing.
+- `POST /api/contact` with Turnstile verification before mail handling.
+- `POST /api/assistant` locked to `static_rules` mode for launch.
+- `POST /api/internal/mail-probe` for preview-only Proton SMTP proof.
+- Mock, disabled, and Worker-native Proton SMTP transport modes.
+- Local screenshot tooling for visual review.
+
+## Local setup
+
+1. Install dependencies:
+
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Copy the env examples:
 
-## 🚀 Project Structure
+```bash
+copy .env.example .env
+copy .dev.vars.example .dev.vars
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+3. Keep local mail in mock mode:
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+MAIL_TRANSPORT_MODE=mock
+ASSISTANT_PROVIDER=static_rules
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+4. Start local Astro development:
 
-## 🧞 Commands
+```bash
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+## Verification commands
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run check
+npm test
+npm run build
+npm run render:visuals
+```
 
-## 👀 Want to learn more?
+If Playwright browsers are missing:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+npm run render:visuals:install
+```
+
+## Cloudflare launch notes
+
+- `wrangler.jsonc` is the non-secret Pages config source of truth.
+- Runtime secrets stay out of the repo. Set them in Cloudflare Pages or local `.dev.vars`.
+- Build-time `TURNSTILE_SITE_KEY` should be set in `.env` locally and as a Pages build variable in Cloudflare.
+- Do not move to production until all three gates pass:
+  - Gate 1: local visual approval
+  - Gate 2: Cloudflare Pages preview approval
+  - Gate 2b: preview-only Proton SMTP proof through `/api/internal/mail-probe`
+
+## Mail stop gate
+
+`MAIL_TRANSPORT_MODE=proton_smtp` is not a launch default. It must only be enabled on preview after:
+
+1. Real Proton SMTP secrets are loaded.
+2. The preview-only probe endpoint completes a real authenticated send.
+3. The controlled probe message arrives in the destination mailbox.
+
+If preview SMTP fails at socket open, TLS upgrade, auth, or DATA send, stop the rollout and re-plan. Do not swap providers live and do not cut over production anyway.

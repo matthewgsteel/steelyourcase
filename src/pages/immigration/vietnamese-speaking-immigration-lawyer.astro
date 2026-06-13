@@ -1,0 +1,17 @@
+---
+import LanguagePage from '@/components/LanguagePage.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema } from '@/lib/seo';
+import { languagePages } from '@/lib/site';
+
+const page = languagePages[3];
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.intro}
+  path={page.path}
+  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/immigration/', label: 'Immigration' }, { href: page.path, label: page.title }])]}
+>
+  <LanguagePage headline={page.headline} intro={page.intro} lines={page.lines} />
+</BaseLayout>

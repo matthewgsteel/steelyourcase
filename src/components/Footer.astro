@@ -1,0 +1,52 @@
+---
+import { firm, legalDisclaimers, primaryNav } from '@/lib/site';
+---
+
+<footer class="site-footer">
+  <div class="footer-grid container">
+    <div>
+      <div class="footer-brand">
+        <img src="/brand/crest-logo.webp" alt="" width="84" height="84" loading="lazy" decoding="async" />
+        <div>
+          <strong>{firm.name}</strong>
+          <p>{firm.addressLines[0]}</p>
+          <p>{firm.addressLines[1]}</p>
+        </div>
+      </div>
+
+      <p class="footer-tagline">Put it on record. Put it on Steel.</p>
+      <ul class="footer-contact-list">
+        <li><a href={`tel:${firm.phoneNumeric}`}>{firm.phoneDisplay}</a></li>
+        <li><a href={`mailto:${firm.email}`}>{firm.email}</a></li>
+        <li>{firm.handle}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Practice Links</h2>
+      <ul class="footer-links">
+        {primaryNav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2>Policies</h2>
+      <ul class="footer-links">
+        <li><a href="/privacy-first-law-firm/">Privacy-First Law Firm</a></li>
+        <li><a href="/legal-disclaimers/">Legal Disclaimers</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li>
+          <button class="footer-anthem-toggle" type="button" data-anthem-footer-toggle>
+            Anthem: <span data-anthem-toggle-text>On</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-rule container">
+    <p>{legalDisclaimers.footer}</p>
+  </div>
+</footer>

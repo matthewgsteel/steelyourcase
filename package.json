@@ -1,17 +1,40 @@
 {
-  "name": "exotic-escape",
+  "name": "steelyourcase",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "private": true,
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host 127.0.0.1 --port 4321",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:local": "astro preview --host 127.0.0.1 --port 4321",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "render:visuals": "node scripts/render-visuals.mjs all",
+    "render:visuals:home": "node scripts/render-visuals.mjs home",
+    "render:visuals:practices": "node scripts/render-visuals.mjs practices",
+    "render:visuals:mobile": "node scripts/render-visuals.mjs mobile",
+    "render:visuals:install": "npx playwright install chromium",
+    "check": "astro check",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.4.6"
+    "@fontsource/cinzel": "^5.2.8",
+    "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/inter": "^5.2.8",
+    "astro": "^6.4.6",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.3",
+    "sharp": "^0.35.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8",
+    "wrangler": "^4.100.0"
   }
 }

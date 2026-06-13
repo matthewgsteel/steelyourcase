@@ -1,0 +1,69 @@
+---
+import { legalDisclaimers } from '@/lib/site';
+import { assistantLocales, assistantPracticeAreas } from '@/lib/forms';
+---
+
+<section class="record-room" data-record-room>
+  <button class="record-room__toggle" type="button" data-record-room-toggle aria-expanded="false">
+    <span>The Record Room</span>
+    <small>Privacy-first intake routing</small>
+  </button>
+
+  <div class="record-room__panel" data-record-room-panel hidden>
+    <header>
+      <p class="hero-kicker">The Record Room</p>
+      <h2>Route the file without guessing.</h2>
+      <p>
+        I can help route immigration, credit repair, Louisiana traffic ticket, and notary requests.
+        I do not give legal advice, and submitting information here does not create an attorney-client relationship.
+      </p>
+    </header>
+
+    <form class="record-room__form" data-record-room-form>
+      <label>
+        Practice area
+        <select name="practiceArea">
+          {assistantPracticeAreas.map((value) => (
+            <option value={value}>{value}</option>
+          ))}
+        </select>
+      </label>
+
+      <label>
+        Preferred language
+        <select name="locale">
+          {assistantLocales.map((value) => (
+            <option value={value}>{value}</option>
+          ))}
+        </select>
+      </label>
+
+      <label>
+        Your message
+        <textarea
+          name="userMessage"
+          rows="5"
+          placeholder="Tell the office what happened, the deadline if there is one, and what kind of help you need."
+        ></textarea>
+      </label>
+
+      <div class="turnstile-slot" data-turnstile-widget="assistant"></div>
+      <p class="record-room__warning">
+        Do not send emergency deadlines, passwords, full Social Security numbers, full A-numbers,
+        passport numbers, financial account numbers, private keys, or highly sensitive documents through this chat.
+      </p>
+
+      <button class="button button-primary" type="submit">Ask The Record Room</button>
+      <p class="record-room__status" data-record-room-status></p>
+      <div class="record-room__messages" data-record-room-messages aria-live="polite"></div>
+    </form>
+
+    <footer>
+      <p>{legalDisclaimers.assistant}</p>
+    </footer>
+  </div>
+</section>
+
+<script>
+  import '@/scripts/record-room-assistant';
+</script>

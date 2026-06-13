@@ -1,0 +1,45 @@
+---
+interface Props {
+  headline: string;
+  intro: string;
+  lines: string[];
+}
+
+const { headline, intro, lines } = Astro.props;
+---
+
+<section class="page-hero container">
+  <div class="page-hero__content">
+    <p class="hero-kicker">Multilingual routing</p>
+    <h1>{headline}</h1>
+    <p class="page-subhead">{intro}</p>
+  </div>
+  <aside class="page-summary-card">
+    <h2>How this page helps</h2>
+    <ul>
+      <li>Collects safe intake details in the preferred language when possible</li>
+      <li>Flags urgent deadlines and routes the file toward attorney review</li>
+      <li>Keeps public language simple, direct, and record-focused</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="content-grid container">
+  <div class="content-flow">
+    {lines.map((line, index) => (
+      <article class="content-block">
+        <h2>{index === 0 ? 'First route' : index === 1 ? 'Case posture' : 'Urgent timing'}</h2>
+        <p>{line}</p>
+      </article>
+    ))}
+  </div>
+
+  <aside class="sidebar-panel">
+    <h2>Need review now?</h2>
+    <p>
+      Use the secure contact form to tell the office the language, the deadline, and the type of
+      immigration matter that needs review.
+    </p>
+    <a class="button button-secondary" href="/contact/">Schedule a Consultation</a>
+  </aside>
+</section>

@@ -1,0 +1,55 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import RecordRoomAssistant from '@/components/RecordRoomAssistant.astro';
+import SteelAnthem from '@/components/SteelAnthem.astro';
+import { buildAbsoluteUrl, firm } from '@/lib/site';
+import '@/styles/global.css';
+import '@/styles/assistant.css';
+import '@/styles/anthem.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  schemas?: unknown[];
+}
+
+const { title, description, path, schemas = [] } = Astro.props;
+const canonical = buildAbsoluteUrl(path);
+const pageTitle = path === '/' ? title : `${title} | ${firm.name}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={firm.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#040403" />
+    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    {schemas.map((schema) =>
+      schema ? <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} /> : null
+    )}
+  </head>
+  <body data-site-path={path} data-turnstile-site-key={import.meta.env.TURNSTILE_SITE_KEY ?? ''}>
+    <div class="site-shell">
+      <Header />
+      <main id="main-content">
+        <slot />
+      </main>
+      <Footer />
+      <RecordRoomAssistant />
+      <SteelAnthem />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  subhead: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+  trustStrip: string[];
+}
+
+const { title, subhead, primaryCta, secondaryCta, trustStrip } = Astro.props;
+---
+
+<section class="hero-section container">
+  <div class="hero-copy">
+    <p class="hero-kicker">Quiet pressure. Clean record work.</p>
+    <h1>{title}</h1>
+    <p class="hero-subhead">{subhead}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href={primaryCta.href}>{primaryCta.label}</a>
+      <a class="button button-secondary" href={secondaryCta.href}>{secondaryCta.label}</a>
+    </div>
+    <ul class="trust-strip">
+      {trustStrip.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="hero-art">
+    <img src="/images/hero-home.webp" alt="" width="900" height="1100" loading="eager" decoding="async" />
+  </div>
+</section>

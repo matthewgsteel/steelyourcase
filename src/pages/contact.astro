@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import {
+  contactConsentText,
+  languageOptions,
+  matterTypes,
+  practiceAreas,
+  urgencyOptions,
+} from '@/lib/forms';
+import { breadcrumbSchema } from '@/lib/seo';
+import { firm, legalDisclaimers } from '@/lib/site';
+
+const defaultMatterTypes = matterTypes.Immigration;
+---
+
+<BaseLayout
+  title="Contact"
+  description="Secure contact and intake page for immigration, credit repair, Louisiana traffic tickets, and notary matters."
+  path="/contact/"
+  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/contact/', label: 'Contact' }])]}
+>
+  <section class="page-hero container">
+    <div class="page-hero__content">
+      <p class="hero-kicker">Primary conversion page</p>
+      <h1>Bring the file. Bring the facts.</h1>
+      <p class="page-subhead">
+        Use the secure intake lane for immigration, credit repair, Louisiana traffic tickets, and
+        notary matters. If the matter involves a short deadline, call after submitting.
+      </p>
+    </div>
+    <aside class="page-summary-card">
+      <h2>Direct contact</h2>
+      <ul>
+        <li><a href={`tel:${firm.phoneNumeric}`}>{firm.phoneDisplay}</a></li>
+        <li><a href={`mailto:${firm.email}`}>{firm.email}</a></li>
+        <li>{firm.addressLines[0]}</li>
+        <li>{firm.addressLines[1]}</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="content-grid container">
+    <div class="content-block">
+      <h2 class="section-heading">Secure intake form</h2>
+      <form class="content-flow" data-contact-form>
+        <div class="faq-grid">
+          <label>
+            Name
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Phone
+            <input name="phone" type="tel" autocomplete="tel" required />
+          </label>
+          <label>
+            Preferred language
+            <select name="preferredLanguage">
+              {languageOptions.map((item) => (
+                <option value={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Practice area
+            <select name="practiceArea">
+              {practiceAreas.map((item) => (
+                <option value={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Matter type
+            <select name="matterType">
+              {defaultMatterTypes.map((item) => (
+                <option value={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Urgency
+            <select name="urgency">
+              {urgencyOptions.map((item) => (
+                <option value={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Deadline
+            <input
+              name="deadline"
+              type="text"
+              placeholder="Court date, hearing date, audit deadline, or agency notice deadline"
+            />
+          </label>
+        </div>
+
+        <label>
+          Short message
+          <textarea
+            name="shortMessage"
+            rows="6"
+            placeholder="Describe what happened, what deadline exists, and what kind of review you need."
+            required
+          ></textarea>
+        </label>
+
+        <label>
+          <input name="consent" type="checkbox" required />
+          <span>{contactConsentText}</span>
+        </label>
+
+        <div class="turnstile-slot" data-turnstile-widget="contact"></div>
+        <button class="button button-primary" type="submit">Send secure intake</button>
+        <p class="record-room__status" data-contact-status>
+          Your message has been received. If this involves a deadline, call +1.833.43.STEEL after submitting.
+        </p>
+      </form>
+    </div>
+
+    <aside class="sidebar-panel">
+      <h2>Best for this form</h2>
+      <ul class="bullet-list">
+        <li>Deadline triage and first review routing</li>
+        <li>Immigration, credit repair, traffic, and notary intake</li>
+        <li>Preferred language and contact details</li>
+      </ul>
+
+      <h3>Do not send here</h3>
+      <ul class="bullet-list">
+        <li>Emergency deadlines without also calling the office</li>
+        <li>Passwords, private keys, full Social Security numbers, or full A-numbers</li>
+        <li>Highly sensitive documents that should wait for a more controlled channel</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="notice-strip container">
+    <p>{legalDisclaimers.privacy}</p>
+  </section>
+</BaseLayout>
+
+<script>
+  import '@/scripts/contact-form';
+</script>

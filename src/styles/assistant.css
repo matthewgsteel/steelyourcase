@@ -1,0 +1,74 @@
+.record-room {
+  position: fixed;
+  right: 1rem;
+  bottom: 6.75rem;
+  z-index: 40;
+  width: min(24rem, calc(100vw - 2rem));
+}
+
+.record-room__toggle,
+.record-room__panel {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(184, 151, 97, 0.5);
+  background: linear-gradient(180deg, rgba(8, 6, 4, 0.96), rgba(18, 13, 10, 0.96));
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.38);
+}
+
+.record-room__toggle {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  color: var(--ivory-text);
+}
+
+.record-room__toggle small,
+.record-room__warning,
+.record-room__status,
+.record-room__panel footer p {
+  color: var(--muted-parchment);
+}
+
+.record-room__panel {
+  margin-top: 0.8rem;
+  padding: 1rem;
+}
+
+.record-room__panel header p:last-child,
+.record-room__message p {
+  line-height: 1.7;
+}
+
+.record-room__form,
+.record-room__messages {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.record-room__message {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(184, 151, 97, 0.28);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.record-room__message h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+}
+
+@media (max-width: 720px) {
+  .record-room {
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+    bottom: 8rem;
+  }
+}
+
+body[data-site-path='/contact/'] .record-room {
+  bottom: 1rem;
+  width: min(18rem, calc(100vw - 2rem));
+}

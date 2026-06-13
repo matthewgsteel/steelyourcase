@@ -1,0 +1,21 @@
+---
+import ServicePage from '@/components/ServicePage.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo';
+import { servicePages } from '@/lib/site';
+
+const page = servicePages.citizenship;
+const schemas = [
+  breadcrumbSchema([
+    { href: '/', label: 'Home' },
+    { href: '/immigration/', label: 'Immigration' },
+    { href: page.path, label: page.title },
+  ]),
+  serviceSchema(page),
+  faqSchema(page.faqs),
+].filter(Boolean);
+---
+
+<BaseLayout title={page.title} description={page.metaDescription} path={page.path} schemas={schemas}>
+  <ServicePage page={page} />
+</BaseLayout>

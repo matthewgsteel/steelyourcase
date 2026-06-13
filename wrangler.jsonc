@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "steelyourcase",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-06-13",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ASSISTANT_PROVIDER": "static_rules",
+    "MAIL_TRANSPORT_MODE": "mock",
+    "PROTON_SMTP_HOST": "smtp.protonmail.ch",
+    "PROTON_SMTP_PORT": "587"
+  },
+  "secrets": {
+    "required": [
+      "TURNSTILE_SECRET_KEY",
+      "PROTON_SMTP_USERNAME",
+      "PROTON_SMTP_PASSWORD",
+      "MAIL_FROM",
+      "MAIL_TO",
+      "MAIL_PROBE_TOKEN"
+    ]
+  }
+}
