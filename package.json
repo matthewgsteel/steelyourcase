@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1 --port 4321",
     "build": "astro build",
+    "deploy:preview": "npm run build && wrangler pages deploy dist --project-name steelyourcase --branch preview-manual --commit-dirty",
+    "deploy:production": "npm run build && wrangler pages deploy dist --project-name steelyourcase --branch main --commit-dirty",
     "preview": "astro preview",
     "preview:local": "astro preview --host 127.0.0.1 --port 4321",
     "test": "vitest run",
