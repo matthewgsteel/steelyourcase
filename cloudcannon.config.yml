@@ -7,6 +7,9 @@ collections_config:
     path: src/content/homepage
     name: Homepage
     icon: home
+    _enabled_editors:
+      - visual
+      - data
     url: '{url}'
     preview:
       text:
@@ -15,6 +18,9 @@ collections_config:
     path: src/content/about-page
     name: About Page
     icon: account_balance
+    _enabled_editors:
+      - visual
+      - data
     url: '{url}'
     preview:
       text:
@@ -23,6 +29,9 @@ collections_config:
     path: src/content/contact-page
     name: Contact Page
     icon: mail
+    _enabled_editors:
+      - visual
+      - data
     url: '{url}'
     preview:
       text:
@@ -31,6 +40,9 @@ collections_config:
     path: src/content/immigration-page
     name: Immigration Page
     icon: description
+    _enabled_editors:
+      - visual
+      - data
     url: '{url}'
     preview:
       text:

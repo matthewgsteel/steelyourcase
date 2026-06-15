@@ -41,6 +41,9 @@ describe('CloudCannon pilot wiring', () => {
     expect(cloudCannonConfig).toContain('contact_page:');
     expect(cloudCannonConfig).toContain('immigration_page:');
     expect(cloudCannonConfig).toContain("url: '{url}'");
+    expect(cloudCannonConfig).toContain('_enabled_editors:');
+    expect(cloudCannonConfig).toContain('- visual');
+    expect(cloudCannonConfig).toContain('- data');
   });
 
   it('wires editable regions into the homepage, about, contact, and immigration surfaces', () => {
