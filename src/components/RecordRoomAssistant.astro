@@ -6,13 +6,13 @@ import { assistantLocales, assistantPracticeAreas } from '@/lib/forms';
 <section class="record-room" data-record-room>
   <button class="record-room__toggle" type="button" data-record-room-toggle aria-expanded="false">
     <span>The Record Room</span>
-    <small>Privacy-first intake routing</small>
+    <small>Controlled Intake Routing</small>
   </button>
 
   <div class="record-room__panel" data-record-room-panel hidden>
     <header>
       <p class="hero-kicker">The Record Room</p>
-      <h2>Route the file without guessing.</h2>
+      <h2>Route the File Without Guessing.</h2>
       <p>
         I can help route immigration, credit repair, Louisiana traffic ticket, and notary requests.
         I do not give legal advice, and submitting information here does not create an attorney-client relationship.
@@ -21,7 +21,7 @@ import { assistantLocales, assistantPracticeAreas } from '@/lib/forms';
 
     <form class="record-room__form" data-record-room-form>
       <label>
-        Practice area
+        Practice Area
         <select name="practiceArea">
           {assistantPracticeAreas.map((value) => (
             <option value={value}>{value}</option>
@@ -30,7 +30,7 @@ import { assistantLocales, assistantPracticeAreas } from '@/lib/forms';
       </label>
 
       <label>
-        Preferred language
+        Preferred Language
         <select name="locale">
           {assistantLocales.map((value) => (
             <option value={value}>{value}</option>

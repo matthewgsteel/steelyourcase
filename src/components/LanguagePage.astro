@@ -10,12 +10,12 @@ const { headline, intro, lines } = Astro.props;
 
 <section class="page-hero container">
   <div class="page-hero__content">
-    <p class="hero-kicker">Multilingual routing</p>
+    <p class="hero-kicker">Multilingual Routing</p>
     <h1>{headline}</h1>
     <p class="page-subhead">{intro}</p>
   </div>
   <aside class="page-summary-card">
-    <h2>How this page helps</h2>
+    <h2>How This Page Helps</h2>
     <ul>
       <li>Collects safe intake details in the preferred language when possible</li>
       <li>Flags urgent deadlines and routes the file toward attorney review</li>
@@ -28,18 +28,18 @@ const { headline, intro, lines } = Astro.props;
   <div class="content-flow">
     {lines.map((line, index) => (
       <article class="content-block">
-        <h2>{index === 0 ? 'First route' : index === 1 ? 'Case posture' : 'Urgent timing'}</h2>
+        <h2>{index === 0 ? 'First Route' : index === 1 ? 'Case Posture' : 'Urgent Timing'}</h2>
         <p>{line}</p>
       </article>
     ))}
   </div>
 
   <aside class="sidebar-panel">
-    <h2>Need review now?</h2>
+    <h2>Need Review Now?</h2>
     <p>
       Use the secure contact form to tell the office the language, the deadline, and the type of
       immigration matter that needs review.
     </p>
-    <a class="button button-secondary" href="/contact/">Schedule a Consultation</a>
+    <a class="button button-secondary" href="/contact/">Request a Consultation</a>
   </aside>
 </section>

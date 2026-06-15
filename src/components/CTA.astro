@@ -4,16 +4,34 @@ interface Props {
   copy: string;
   href?: string;
   label?: string;
+  kicker?: string;
+  editable?: boolean;
 }
 
-const { title, copy, href = '/contact/', label = 'Schedule a Consultation' } = Astro.props;
+const {
+  title,
+  copy,
+  href = '/contact/',
+  label = 'Request a Consultation',
+  kicker = 'The Next Move',
+  editable = false,
+} = Astro.props;
 ---
 
 <section class="cta-panel container">
   <div>
-    <p class="hero-kicker">The next move</p>
-    <h2>{title}</h2>
-    <p>{copy}</p>
+    <p class="hero-kicker" data-editable={editable ? 'text' : undefined} data-prop={editable ? 'kicker' : undefined}>
+      {kicker}
+    </p>
+    <h2 data-editable={editable ? 'text' : undefined} data-prop={editable ? 'title' : undefined}>{title}</h2>
+    <p data-editable={editable ? 'text' : undefined} data-prop={editable ? 'copy' : undefined}>{copy}</p>
   </div>
-  <a class="button button-primary" href={href}>{label}</a>
+  <a
+    class="button button-primary"
+    href={href}
+    data-editable={editable ? 'text' : undefined}
+    data-prop={editable ? 'label' : undefined}
+  >
+    {label}
+  </a>
 </section>

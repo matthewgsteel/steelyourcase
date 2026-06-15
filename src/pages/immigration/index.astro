@@ -1,10 +1,40 @@
 ---
 import ServicePage from '@/components/ServicePage.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo';
-import { servicePages } from '@/lib/site';
+import type { ServicePageData } from '@/lib/site';
 
-const page = servicePages.immigration;
+const [immigrationEntry] = await getCollection('immigration-page');
+
+if (!immigrationEntry) {
+  throw new Error('Immigration page content entry is missing.');
+}
+
+const page: ServicePageData = {
+  path: immigrationEntry.data.url,
+  title: immigrationEntry.data.title,
+  metaDescription: immigrationEntry.data.metaDescription,
+  headline: immigrationEntry.data.headline,
+  subhead: immigrationEntry.data.subhead,
+  intro: immigrationEntry.data.intro,
+  summaryTitle: immigrationEntry.data.summaryTitle,
+  keyPoints: immigrationEntry.data.keyPoints.map((item) => item.text),
+  sections: immigrationEntry.data.sections.map((section) => ({
+    ...section,
+    points: section.points?.map((item) => item.text),
+  })),
+  faqs: immigrationEntry.data.faqs,
+  disclaimer: immigrationEntry.data.disclaimer,
+  relatedLinks: immigrationEntry.data.relatedLinks,
+  ctaLabel: immigrationEntry.data.cta.label,
+  ctaHref: immigrationEntry.data.cta.href,
+  sidebarTitle: immigrationEntry.data.sidebarTitle,
+  sidebarCopy: immigrationEntry.data.sidebarCopy,
+  faqTitle: immigrationEntry.data.faqTitle,
+  ctaPanel: immigrationEntry.data.cta,
+};
+
 const schemas = [
   breadcrumbSchema([
     { href: '/', label: 'Home' },
@@ -16,5 +46,7 @@ const schemas = [
 ---
 
 <BaseLayout title={page.title} description={page.metaDescription} path={page.path} schemas={schemas}>
-  <ServicePage page={page} />
+  <editable-component data-prop="" data-component="service-page">
+    <ServicePage page={page} editable />
+  </editable-component>
 </BaseLayout>

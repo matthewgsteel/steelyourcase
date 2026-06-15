@@ -4,17 +4,29 @@ interface Props {
   copy: string;
   href: string;
   cta: string;
-  image: string;
+  image: { src: string; alt: string; title?: string };
 }
 
 const { title, copy, href, cta, image } = Astro.props;
 ---
 
 <article class="practice-card">
-  <img src={image} alt="" loading="lazy" decoding="async" width="640" height="520" />
+  <img
+    data-editable="image"
+    data-prop-src="image.src"
+    data-prop-alt="image.alt"
+    data-prop-title="image.title"
+    src={image.src}
+    alt={image.alt}
+    title={image.title}
+    loading="lazy"
+    decoding="async"
+    width="640"
+    height="520"
+  />
   <div class="practice-card__content">
-    <h3>{title}</h3>
-    <p>{copy}</p>
-    <a class="text-link" href={href}>{cta}</a>
+    <h3 data-editable="text" data-prop="title">{title}</h3>
+    <p data-editable="text" data-prop="copy">{copy}</p>
+    <a class="text-link" href={href} data-editable="text" data-prop="cta">{cta}</a>
   </div>
 </article>

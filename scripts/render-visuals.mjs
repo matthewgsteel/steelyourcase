@@ -110,7 +110,8 @@ try {
       viewport: target.viewport,
     });
 
-    await page.goto(`${baseUrl}${target.path}`, { waitUntil: 'networkidle' });
+    await page.goto(`${baseUrl}${target.path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForTimeout(1200);
     await page.addStyleTag({
       content: `
         *, *::before, *::after {

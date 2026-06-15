@@ -42,6 +42,13 @@ const pageTitle = path === '/' ? title : `${title} | ${firm.name}`;
     )}
   </head>
   <body data-site-path={path} data-turnstile-site-key={import.meta.env.TURNSTILE_SITE_KEY ?? ''}>
+    <script>
+      if (window.inEditorMode) {
+        import('../scripts/register-cloudcannon-components.js').catch((error) => {
+          console.warn('Failed to load CloudCannon component registration:', error);
+        });
+      }
+    </script>
     <div class="site-shell">
       <Header />
       <main id="main-content">

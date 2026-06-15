@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import {
   contactConsentText,
   languageOptions,
@@ -8,28 +9,32 @@ import {
   urgencyOptions,
 } from '@/lib/forms';
 import { breadcrumbSchema } from '@/lib/seo';
-import { firm, legalDisclaimers } from '@/lib/site';
+import { firm } from '@/lib/site';
 
 const defaultMatterTypes = matterTypes.Immigration;
+const [contactEntry] = await getCollection('contact-page');
+
+if (!contactEntry) {
+  throw new Error('Contact page content entry is missing.');
+}
+
+const contactPage = contactEntry.data;
 ---
 
 <BaseLayout
-  title="Contact"
-  description="Secure contact and intake page for immigration, credit repair, Louisiana traffic tickets, and notary matters."
+  title={contactPage.title}
+  description={contactPage.metaDescription}
   path="/contact/"
   schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/contact/', label: 'Contact' }])]}
 >
   <section class="page-hero container">
     <div class="page-hero__content">
-      <p class="hero-kicker">Primary conversion page</p>
-      <h1>Bring the file. Bring the facts.</h1>
-      <p class="page-subhead">
-        Use the secure intake lane for immigration, credit repair, Louisiana traffic tickets, and
-        notary matters. If the matter involves a short deadline, call after submitting.
-      </p>
+      <p class="hero-kicker" data-editable="text" data-prop="heroKicker">{contactPage.heroKicker}</p>
+      <h1 data-editable="text" data-prop="heroTitle">{contactPage.heroTitle}</h1>
+      <p class="page-subhead" data-editable="text" data-prop="heroSubhead">{contactPage.heroSubhead}</p>
     </div>
     <aside class="page-summary-card">
-      <h2>Direct contact</h2>
+      <h2 data-editable="text" data-prop="directContactTitle">{contactPage.directContactTitle}</h2>
       <ul>
         <li><a href={`tel:${firm.phoneNumeric}`}>{firm.phoneDisplay}</a></li>
         <li><a href={`mailto:${firm.email}`}>{firm.email}</a></li>
@@ -41,7 +46,9 @@ const defaultMatterTypes = matterTypes.Immigration;
 
   <section class="content-grid container">
     <div class="content-block">
-      <h2 class="section-heading">Secure intake form</h2>
+      <h2 class="section-heading" data-editable="text" data-prop="formSectionTitle">
+        {contactPage.formSectionTitle}
+      </h2>
       <form class="content-flow" data-contact-form>
         <div class="faq-grid">
           <label>
@@ -57,7 +64,7 @@ const defaultMatterTypes = matterTypes.Immigration;
             <input name="phone" type="tel" autocomplete="tel" required />
           </label>
           <label>
-            Preferred language
+            Preferred Language
             <select name="preferredLanguage">
               {languageOptions.map((item) => (
                 <option value={item}>{item}</option>
@@ -65,7 +72,7 @@ const defaultMatterTypes = matterTypes.Immigration;
             </select>
           </label>
           <label>
-            Practice area
+            Practice Area
             <select name="practiceArea">
               {practiceAreas.map((item) => (
                 <option value={item}>{item}</option>
@@ -73,7 +80,7 @@ const defaultMatterTypes = matterTypes.Immigration;
             </select>
           </label>
           <label>
-            Matter type
+            Matter Type
             <select name="matterType">
               {defaultMatterTypes.map((item) => (
                 <option value={item}>{item}</option>
@@ -99,7 +106,7 @@ const defaultMatterTypes = matterTypes.Immigration;
         </div>
 
         <label>
-          Short message
+          Short Message
           <textarea
             name="shortMessage"
             rows="6"
@@ -114,32 +121,38 @@ const defaultMatterTypes = matterTypes.Immigration;
         </label>
 
         <div class="turnstile-slot" data-turnstile-widget="contact"></div>
-        <button class="button button-primary" type="submit">Send secure intake</button>
-        <p class="record-room__status" data-contact-status>
-          Your message has been received. If this involves a deadline, call +1.833.43.STEEL after submitting.
+        <button class="button button-primary" type="submit" data-editable="text" data-prop="submitLabel">
+          {contactPage.submitLabel}
+        </button>
+        <p class="record-room__status" data-contact-status data-editable="text" data-prop="statusMessage">
+          {contactPage.statusMessage}
         </p>
       </form>
     </div>
 
     <aside class="sidebar-panel">
-      <h2>Best for this form</h2>
-      <ul class="bullet-list">
-        <li>Deadline triage and first review routing</li>
-        <li>Immigration, credit repair, traffic, and notary intake</li>
-        <li>Preferred language and contact details</li>
+      <h2 data-editable="text" data-prop="bestForTitle">{contactPage.bestForTitle}</h2>
+      <ul class="bullet-list" data-editable="array" data-prop="bestForItems">
+        {contactPage.bestForItems.map((item) => (
+          <li data-editable="array-item">
+            <span data-editable="text" data-prop="text">{item.text}</span>
+          </li>
+        ))}
       </ul>
 
-      <h3>Do not send here</h3>
-      <ul class="bullet-list">
-        <li>Emergency deadlines without also calling the office</li>
-        <li>Passwords, private keys, full Social Security numbers, or full A-numbers</li>
-        <li>Highly sensitive documents that should wait for a more controlled channel</li>
+      <h3 data-editable="text" data-prop="doNotSendTitle">{contactPage.doNotSendTitle}</h3>
+      <ul class="bullet-list" data-editable="array" data-prop="doNotSendItems">
+        {contactPage.doNotSendItems.map((item) => (
+          <li data-editable="array-item">
+            <span data-editable="text" data-prop="text">{item.text}</span>
+          </li>
+        ))}
       </ul>
     </aside>
   </section>
 
   <section class="notice-strip container">
-    <p>{legalDisclaimers.privacy}</p>
+    <p data-editable="text" data-prop="privacyNotice">{contactPage.privacyNotice}</p>
   </section>
 </BaseLayout>
 

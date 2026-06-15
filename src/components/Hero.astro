@@ -1,32 +1,65 @@
 ---
 interface Props {
+  kicker?: string;
   title: string;
   subhead: string;
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
-  trustStrip: string[];
+  trustStrip: { text: string }[];
+  image: { src: string; alt: string; title?: string };
 }
 
-const { title, subhead, primaryCta, secondaryCta, trustStrip } = Astro.props;
+const {
+  kicker = 'Quiet pressure. Clean record work.',
+  title,
+  subhead,
+  primaryCta,
+  secondaryCta,
+  trustStrip,
+  image,
+} = Astro.props;
 ---
 
 <section class="hero-section container">
   <div class="hero-copy">
-    <p class="hero-kicker">Quiet pressure. Clean record work.</p>
-    <h1>{title}</h1>
-    <p class="hero-subhead">{subhead}</p>
+    <p class="hero-kicker" data-editable="text" data-prop="kicker">{kicker}</p>
+    <h1 data-editable="text" data-prop="title">{title}</h1>
+    <p class="hero-subhead" data-editable="text" data-prop="subhead">{subhead}</p>
     <div class="hero-actions">
-      <a class="button button-primary" href={primaryCta.href}>{primaryCta.label}</a>
-      <a class="button button-secondary" href={secondaryCta.href}>{secondaryCta.label}</a>
+      <a class="button button-primary" href={primaryCta.href} data-editable="text" data-prop="primaryCta.label">
+        {primaryCta.label}
+      </a>
+      <a
+        class="button button-secondary"
+        href={secondaryCta.href}
+        data-editable="text"
+        data-prop="secondaryCta.label"
+      >
+        {secondaryCta.label}
+      </a>
     </div>
-    <ul class="trust-strip">
+    <ul class="trust-strip" data-editable="array" data-prop="trustStrip">
       {trustStrip.map((item) => (
-        <li>{item}</li>
+        <li data-editable="array-item">
+          <span data-editable="text" data-prop="text">{item.text}</span>
+        </li>
       ))}
     </ul>
   </div>
 
   <div class="hero-art">
-    <img src="/images/hero-home.webp" alt="" width="900" height="1100" loading="eager" decoding="async" />
+    <img
+      data-editable="image"
+      data-prop-src="image.src"
+      data-prop-alt="image.alt"
+      data-prop-title="image.title"
+      src={image.src}
+      alt={image.alt}
+      title={image.title}
+      width="900"
+      height="1100"
+      loading="eager"
+      decoding="async"
+    />
   </div>
 </section>

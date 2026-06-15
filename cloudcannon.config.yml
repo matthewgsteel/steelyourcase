@@ -1,0 +1,44 @@
+source: /
+paths:
+  static: public
+  uploads: public/images
+collections_config:
+  homepage:
+    path: src/content/homepage
+    name: Homepage
+    icon: home
+    url: '{url}'
+    preview:
+      text:
+        - key: seoTitle
+  about_page:
+    path: src/content/about-page
+    name: About Page
+    icon: account_balance
+    url: '{url}'
+    preview:
+      text:
+        - key: title
+  contact_page:
+    path: src/content/contact-page
+    name: Contact Page
+    icon: mail
+    url: '{url}'
+    preview:
+      text:
+        - key: title
+  immigration_page:
+    path: src/content/immigration-page
+    name: Immigration Page
+    icon: description
+    url: '{url}'
+    preview:
+      text:
+        - key: title
+collection_groups:
+  - heading: Pilot Pages
+    collections:
+      - homepage
+      - about_page
+      - contact_page
+      - immigration_page

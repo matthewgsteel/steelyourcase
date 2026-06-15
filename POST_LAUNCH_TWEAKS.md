@@ -30,7 +30,6 @@ Use this file as the fastest path for pointed changes after launch.
   - `src/pages/credit-repair/*`
   - `src/pages/traffic-tickets/*`
   - `src/pages/notary/*`
-  - `src/pages/privacy-first-law-firm.astro`
 
 ## Fonts
 
@@ -62,7 +61,7 @@ If you want different fonts later, change the imports at the top of `src/styles/
 1. Edit the target file above.
 2. Run `npm run check`
 3. Run `npm run build`
-4. If the change is visual, run `npm run render:visuals`
+4. If the change is visual, run `npm run render`
 5. Commit and push to `main`
 
 ## Notes

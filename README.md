@@ -4,12 +4,13 @@ Static-first Astro site for `steelyourcase.com`, prepared for Cloudflare Pages w
 
 ## What is included
 
-- Public marketing and intake pages for immigration, credit repair, traffic tickets, notary, privacy stack, and multilingual routing.
+- Public marketing and intake pages for immigration, credit repair, traffic tickets, notary, and multilingual routing.
 - `POST /api/contact` with Turnstile verification before mail handling.
 - `POST /api/assistant` locked to `static_rules` mode for launch.
 - `POST /api/internal/mail-probe` for preview-only Proton SMTP proof.
 - Mock, disabled, and Worker-native Proton SMTP transport modes.
 - Local screenshot tooling for visual review.
+- Internal Proton operating notes in `PROTON_OPERATING_MODEL.md`.
 
 ## Local setup
 
@@ -45,7 +46,7 @@ npm run dev
 npm run check
 npm test
 npm run build
-npm run render:visuals
+npm run render
 ```
 
 If Playwright browsers are missing:

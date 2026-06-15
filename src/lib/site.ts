@@ -29,6 +29,17 @@ export type ServicePageData = {
   relatedLinks?: LinkItem[];
   ctaLabel?: string;
   ctaHref?: string;
+  summaryTitle?: string;
+  sidebarTitle?: string;
+  sidebarCopy?: string;
+  faqTitle?: string;
+  ctaPanel?: {
+    kicker?: string;
+    title: string;
+    copy: string;
+    label: string;
+    href: string;
+  };
 };
 
 export const firm = {
@@ -71,7 +82,6 @@ export const primaryNav: LinkItem[] = [
   { href: '/credit-repair/', label: 'Credit Repair' },
   { href: '/traffic-tickets/', label: 'Traffic Tickets' },
   { href: '/notary/', label: 'Notary' },
-  { href: '/privacy-first-law-firm/', label: 'Privacy Stack' },
   { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' },
 ];
@@ -122,7 +132,7 @@ export const practiceCards = [
     image: '/images/practice-notary.webp',
     copy:
       'Remote online and mobile notary services for documents that need to be signed, sealed, and handled properly.',
-    cta: 'Book Notary Help',
+    cta: 'Request Notary Help',
   },
 ];
 
@@ -150,14 +160,14 @@ export const homeSections = {
     title: 'Put it on record. Put it on Steel.',
     subhead:
       'Steel & Associates, A Professional Law Corporation helps clients handle immigration, credit repair, Louisiana traffic tickets, and notary needs with clear strategy, clean records, and secure systems.',
-    primaryCta: { label: 'Schedule a Consultation', href: '/contact/' },
+    primaryCta: { label: 'Request a Consultation', href: '/contact/' },
     secondaryCta: { label: 'Call +1.833.43.STEEL', href: `tel:${firm.phoneNumeric}` },
     trustStrip: [
       'Gretna, Louisiana',
       'Federal immigration matters across the United States',
       'Louisiana matters for traffic ticket and notary services',
       'Multilingual capability',
-      'Privacy-first operating stack',
+      'Controlled intake and clean communication',
     ],
   },
   steelMethod: {
@@ -177,19 +187,13 @@ export const homeSections = {
       { href: '/immigration/federal-court-relief/', label: 'Habeas and Federal Court Relief' },
     ],
   },
-  privacy: {
-    title: 'Privacy-First Law Firm',
-    copy:
-      'A legal problem is already enough exposure. The firm uses a privacy-first operating stack for communications, files, scheduling, credentials, research, and internal work product. Privacy tools do not make the internet magic, but they do reduce unnecessary leakage.',
-    cta: { label: 'See Our Privacy Stack', href: '/privacy-first-law-firm/' },
-  },
   languages: {
     title: 'Multilingual Reach',
     list: ['English', 'Spanish', 'Polish', 'Mandarin Chinese', 'Vietnamese', 'Russian and Ukrainian-facing routing'],
     copy:
       'Immigration is not just paperwork. It is family, memory, language, status, movement, fear, timing, and the official record. The firm is built for clients who live between worlds.',
   },
-  footerCta: 'Bring the file. Bring the facts. We’ll bring the next move.',
+  footerCta: "Bring the file. Bring the facts. We'll bring the next move.",
 };
 
 export const languagePages = [
@@ -264,73 +268,6 @@ export const languagePages = [
       'The firm reviews humanitarian relief, family petitions, removal defense, employment immigration, O visas, NIW, and federal court immigration matters.',
       'If the matter involves detention, a hearing notice, or a short deadline, call after you submit the form.',
     ],
-  },
-];
-
-export const privacyTools = [
-  {
-    title: 'Proton Account',
-    copy: 'Account security, recovery planning, two-factor protection, and controlled access are the base layer for everything else.',
-  },
-  {
-    title: 'Proton Mail',
-    copy: 'Custom-domain email, encrypted Proton-to-Proton mail, aliases, filters, password-protected external messages where appropriate, and exportable records.',
-  },
-  {
-    title: 'Proton Mail Bridge',
-    copy: 'Used only when a desktop workflow needs local decryption and a traditional mail client without pretending every workflow needs it.',
-  },
-  {
-    title: 'Proton Calendar',
-    copy: 'Private scheduling for consultations, filing dates, court events, audit deadlines, and internal timing discipline.',
-  },
-  {
-    title: 'Proton Drive',
-    copy: 'Encrypted file custody, secure links, expiration controls, version history, and disciplined folder structure for active records.',
-  },
-  {
-    title: 'Proton Docs',
-    copy: 'Secure drafting, review loops, dispute letters, filings, audit responses, and internal work product under attorney review.',
-  },
-  {
-    title: 'Proton Sheets',
-    copy: 'Private trackers for intake, credit review, I-9 checklists, deadlines, matter status, and internal dashboards.',
-  },
-  {
-    title: 'Proton Meet',
-    copy: 'Confidential consultations and internal calls with guest access when appropriate.',
-  },
-  {
-    title: 'Proton Pass',
-    copy: 'Vaults, aliases, passkeys, breach monitoring, password health, and compartmentalized credential sharing.',
-  },
-  {
-    title: 'SimpleLogin',
-    copy: 'Public-facing aliasing that helps compartmentalize where contact routes begin and where they stop.',
-  },
-  {
-    title: 'Proton Authenticator',
-    copy: 'A separate TOTP lane for high-value accounts and internal access control.',
-  },
-  {
-    title: 'Proton VPN',
-    copy: 'Network hardening for travel, public Wi-Fi, remote work, and sensitive sessions.',
-  },
-  {
-    title: 'Proton Wallet',
-    copy: 'Mentioned carefully as self-custody literacy and internal compartmentalization, not as a client-service or payment product.',
-  },
-  {
-    title: 'Lumo',
-    copy: 'Private AI assistance for summarization, translation, drafting, and research workflows, always subject to attorney review and source verification.',
-  },
-  {
-    title: 'Proton for Business',
-    copy: 'Custom domains, user governance, SMTP tokens for business systems, retention awareness, and organization-level control.',
-  },
-  {
-    title: 'Standard Notes',
-    copy: 'Private notes and research capture adjacent to the Proton ecosystem for internal knowledge work.',
   },
 ];
 
@@ -969,7 +906,7 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     disclaimer: legalDisclaimers.notary,
     relatedLinks: [{ href: '/contact/', label: 'Contact' }],
-    ctaLabel: 'Book Notary Help',
+    ctaLabel: 'Request Notary Help',
     ctaHref: '/contact/',
   },
 };
@@ -984,7 +921,7 @@ export function buildPageTitle(pageTitle: string) {
 
 export const socialProof = [
   'Record-first legal workflows',
-  'Privacy-aware intake',
+  'Controlled intake',
   'Multilingual routing',
   'Cloudflare-first launch path',
 ];
