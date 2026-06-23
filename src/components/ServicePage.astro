@@ -16,7 +16,7 @@ const { page } = Astro.props;
     <h1>{page.headline}</h1>
     <p class="page-subhead">{page.subhead}</p>
   </div>
-  <aside class="page-summary-card">
+  <aside class="page-summary-card" data-nosnippet>
     <h2>What this page covers</h2>
     <ul>
       {page.keyPoints.map((point) => (
@@ -52,7 +52,7 @@ const { page } = Astro.props;
     ))}
   </div>
 
-  <aside class="sidebar-panel">
+  <aside class="sidebar-panel" data-nosnippet>
     <h2>Route the file</h2>
     <p>
       Use the secure contact form when you want the office to review the matter, flag a deadline,
@@ -89,7 +89,7 @@ const { page } = Astro.props;
 )}
 
 {page.disclaimer && (
-  <section class="notice-strip container">
+  <section class="notice-strip container" data-nosnippet>
     <p>{page.disclaimer}</p>
   </section>
 )}

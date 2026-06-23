@@ -1,11 +1,16 @@
 ---
+import CTA from '@/components/CTA.astro';
+import type { FaqItem, PageSection } from '@/lib/site';
+
 interface Props {
   headline: string;
   intro: string;
   lines: string[];
+  sections?: PageSection[];
+  faqs?: FaqItem[];
 }
 
-const { headline, intro, lines } = Astro.props;
+const { headline, intro, lines, sections = [], faqs = [] } = Astro.props;
 ---
 
 <section class="page-hero container">
@@ -14,7 +19,7 @@ const { headline, intro, lines } = Astro.props;
     <h1>{headline}</h1>
     <p class="page-subhead">{intro}</p>
   </div>
-  <aside class="page-summary-card">
+  <aside class="page-summary-card" data-nosnippet>
     <h2>How this page helps</h2>
     <ul>
       <li>Collects safe intake details in the preferred language when possible</li>
@@ -26,15 +31,24 @@ const { headline, intro, lines } = Astro.props;
 
 <section class="content-grid container">
   <div class="content-flow">
-    {lines.map((line, index) => (
-      <article class="content-block">
-        <h2>{index === 0 ? 'First route' : index === 1 ? 'Case posture' : 'Urgent timing'}</h2>
-        <p>{line}</p>
-      </article>
-    ))}
+    <article class="language-page-content">
+      {lines.map((line, index) => (
+        <section class="content-block">
+          <h2>{index === 0 ? 'First route' : index === 1 ? 'Case posture' : 'Urgent timing'}</h2>
+          <p>{line}</p>
+        </section>
+      ))}
+
+      {sections.map((section) => (
+        <section class="content-block">
+          <h2>{section.title}</h2>
+          <p>{section.body}</p>
+        </section>
+      ))}
+    </article>
   </div>
 
-  <aside class="sidebar-panel">
+  <aside class="sidebar-panel" data-nosnippet>
     <h2>Need review now?</h2>
     <p>
       Use the secure contact form to tell the office the language, the deadline, and the type of
@@ -43,3 +57,22 @@ const { headline, intro, lines } = Astro.props;
     <a class="button button-secondary" href="/contact/">Schedule a Consultation</a>
   </aside>
 </section>
+
+{faqs.length > 0 && (
+  <section class="faq-section container">
+    <h2>Frequently Routed Questions</h2>
+    <div class="faq-grid">
+      {faqs.map((faq) => (
+        <article class="faq-card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<CTA
+  title="Bring the file. Bring the facts."
+  copy="Use the secure intake lane when you want the office to review the record, the deadline, and the right next move."
+/>

@@ -204,6 +204,35 @@ export const languagePages = [
       'Family, humanitarian, removal, employment, O visa, NIW, and federal court immigration matters all start with the same discipline: facts, evidence, strategy, record.',
       'If the matter involves detention, a hearing, a Notice to Appear, or a fast deadline, call immediately after submitting the form.',
     ],
+    sections: [
+      {
+        title: 'Polish-speaking family and humanitarian immigration',
+        body:
+          'Family petitions, asylum applications, VAWA, U visas, T visas, TPS, and humanitarian parole all require precise documentation. The firm collects intake details in Polish when helpful, then moves the file into English-language attorney review for filing strategy and government correspondence.',
+      },
+      {
+        title: 'Removal defense and court deadlines for Polish-speaking clients',
+        body:
+          'If a Polish-speaking client faces a Notice to Appear, a master calendar hearing, or an individual hearing, the office can coordinate interpretation, review the charging document, and prepare the record. Do not wait for the next court date to start the review.',
+      },
+      {
+        title: 'Employment immigration and O visa / NIW for Polish professionals',
+        body:
+          'Polish professionals seeking O-1 extraordinary ability visas, National Interest Waiver green cards, or employer-sponsored immigration benefit from the same record-first approach. The firm reviews the beneficiary record, the employer posture, and the agency timing before recommending a filing lane.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can the attorney speak Polish directly?',
+        answer:
+          'The firm collects intake in Polish and coordinates interpretation when needed. Formal attorney review and government filings proceed in English as required by agency practice.',
+      },
+      {
+        question: 'What should a Polish-speaking client bring to the first review?',
+        answer:
+          'Bring identity documents, any USCIS correspondence, prior filing records, court notices if applicable, and a timeline of key events. Do not send highly sensitive documents through the public form.',
+      },
+    ],
   },
   {
     path: '/immigration/spanish-speaking-immigration-lawyer/',
@@ -215,6 +244,45 @@ export const languagePages = [
       'Family petitions, asylum, humanitarian relief, removal defense, citizenship, worksite I-9 matters, O visas, NIW, and federal court relief can all be screened through the same intake lane.',
       'We can collect basic information in your preferred language. Attorney review determines next steps.',
       'If the matter involves court, detention, or a government deadline, submit the form and call right away.',
+    ],
+    sections: [
+      {
+        title: 'Spanish-speaking family petitions and adjustment of status',
+        body:
+          'Marriage-based petitions, parent and child petitions, consular processing, and waiver applications are common in the Spanish-speaking community. The firm collects intake in Spanish, identifies timing risks from travel history or prior filings, and moves the record into attorney review for filing strategy.',
+      },
+      {
+        title: 'Asylum and humanitarian relief for Spanish-speaking clients',
+        body:
+          'Asylum, withholding of removal, CAT protection, U visas for crime victims, T visas for trafficking survivors, VAWA self-petitions, and TPS all require careful record-building. The office routes humanitarian intake in Spanish while keeping sensitive details out of public channels until attorney review.',
+      },
+      {
+        title: 'Removal defense and detention for Spanish-speaking clients',
+        body:
+          'When immigration court is active, Spanish-speaking clients need fast triage. The office reviews hearing notices, custody status, prior orders, and bond eligibility. If someone is detained, call immediately after submitting the intake form.',
+      },
+      {
+        title: 'Citizenship and naturalization for Spanish-speaking applicants',
+        body:
+          'N-400 applications can surface issues from long trips abroad, prior arrests, selective service, tax gaps, or green card history. The firm screens these issues during intake and prepares the client for interview posture.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can the firm handle the entire case in Spanish?',
+        answer:
+          'Intake and routing can be conducted in Spanish. Formal filings and government correspondence proceed in English. The office coordinates interpretation for interviews and hearings when needed.',
+      },
+      {
+        question: 'What if a family member is detained right now?',
+        answer:
+          'Call the office immediately at +1.833.43.STEEL. Do not wait for the intake form to be processed. Detention matters require same-day triage.',
+      },
+      {
+        question: 'Does the office help with U visas for crime victims?',
+        answer:
+          'Yes. The firm reviews U visa eligibility, collects the required certification information, and builds the record with attention to the law-enforcement cooperation element.',
+      },
     ],
   },
   {
@@ -228,6 +296,35 @@ export const languagePages = [
       'The firm handles family petitions, humanitarian matters, removal defense, employment immigration, O visas, NIW, and federal court immigration relief.',
       'For urgent deadlines, hearings, detention, or employer exposure, submit the form and call immediately.',
     ],
+    sections: [
+      {
+        title: 'Mandarin-friendly employment immigration and O-1 visas',
+        body:
+          'Chinese professionals in technology, research, arts, and business frequently pursue O-1 extraordinary ability visas and National Interest Waiver green cards. The firm reviews the beneficiary credentials, publication record, employer sponsorship posture, and agency timing before recommending a strategy.',
+      },
+      {
+        title: 'Family petitions and consular processing for Chinese-speaking families',
+        body:
+          'Family-based immigration for Chinese-speaking clients often involves consular processing, visa bulletin timing, and prior visa history. The office identifies priority date issues, travel history problems, and documentary gaps before filing.',
+      },
+      {
+        title: 'Mandarin-speaking removal defense and court matters',
+        body:
+          'When a Mandarin-speaking client faces immigration court, the office coordinates with qualified interpreters, reviews the charging document, and prepares the defense record. Urgent matters should not wait for form processing alone.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can the firm help with EB-1 or NIW applications for Chinese researchers?',
+        answer:
+          'Yes. The firm reviews publication records, citation evidence, recommendation letters, and employer posture to position O-1, EB-1, and NIW filings effectively.',
+      },
+      {
+        question: 'How does the office handle interpretation for Mandarin-speaking clients?',
+        answer:
+          'The firm coordinates with qualified Mandarin interpreters for interviews, hearings, and consultations. Intake can be collected in Mandarin, and formal review proceeds in English.',
+      },
+    ],
   },
   {
     path: '/immigration/vietnamese-speaking-immigration-lawyer/',
@@ -239,6 +336,35 @@ export const languagePages = [
       'We can collect basic intake information in Vietnamese and confirm what the attorney needs to review the file.',
       'Common matters include family immigration, humanitarian relief, removal defense, citizenship, employment immigration, O visas, NIW, and federal court relief.',
       'If there is detention, a hearing, or a fast government deadline, call after submitting the form.',
+    ],
+    sections: [
+      {
+        title: 'Vietnamese-speaking family immigration and consular processing',
+        body:
+          'Family petitions for spouses, parents, children, and siblings of Vietnamese-origin clients often involve consular processing in Ho Chi Minh City, prior visa denials, and affidavit of support requirements. The firm reviews the relationship evidence, priority date, and travel history before recommending a filing strategy.',
+      },
+      {
+        title: 'Humanitarian relief for Vietnamese-speaking clients',
+        body:
+          'Asylum, U visas, T visas, VAWA, and TPS cases from Vietnamese-speaking communities require trauma-aware intake and careful record-building. The office collects minimum safe facts and pushes the rest into attorney review.',
+      },
+      {
+        title: 'Citizenship and removal defense for Vietnamese-speaking clients',
+        body:
+          'Naturalization applications and removal defense matters for Vietnamese-speaking clients often involve old arrival records, prior orders, or decades-old immigration history. The firm reviews the full record before recommending a path.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can the office help with consular processing in Ho Chi Minh City?',
+        answer:
+          'Yes. The firm reviews consular processing cases, prepares the record for the visa interview, and identifies documentary issues before the appointment.',
+      },
+      {
+        question: 'What if a Vietnamese-speaking family member has an old deportation order?',
+        answer:
+          'Submit the intake form with whatever records are available and call the office. Old orders require careful review of the underlying case, motion eligibility, and current posture before any action is taken.',
+      },
     ],
   },
   {
@@ -252,6 +378,35 @@ export const languagePages = [
       'The firm reviews family, humanitarian, removal, employment, O visa, NIW, worksite I-9, and federal court immigration matters.',
       'Urgent court, detention, or deadline matters should be submitted and followed with a phone call right away.',
     ],
+    sections: [
+      {
+        title: 'Russian-speaking asylum and humanitarian relief',
+        body:
+          'Asylum claims from Russian-speaking clients often involve political persecution, journalistic activity, LGBTQ+ status, religious minority membership, or other protected grounds. The firm collects safe intake details, identifies the one-year filing deadline, and moves the record into attorney review without public overexposure of sensitive facts.',
+      },
+      {
+        title: 'Employment immigration for Russian-speaking professionals',
+        body:
+          'Russian-speaking professionals in technology, science, arts, and business may pursue O-1 visas, NIW green cards, or employer-sponsored immigration. The firm reviews credentials, publication records, employer posture, and agency timing to position the filing.',
+      },
+      {
+        title: 'Family petitions and adjustment for Russian-speaking families',
+        body:
+          'Family-based immigration for Russian-speaking clients may involve consular processing, prior visa history, travel records, and admissibility questions. The office reviews the relationship evidence and the timing before recommending a filing lane.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can the firm help with asylum claims based on political persecution?',
+        answer:
+          'Yes. The firm reviews asylum claims, identifies the filing deadline, and builds the record with attention to consistency, corroboration, and the protected ground at issue. Sensitive details should be discussed in attorney review, not in a public form.',
+      },
+      {
+        question: 'Does the office handle parole or humanitarian cases for Russian-speaking clients?',
+        answer:
+          'Yes. The firm reviews parole eligibility, TPS, and other humanitarian options based on the specific facts and current agency guidance.',
+      },
+    ],
   },
   {
     path: '/immigration/ukrainian-speaking-immigration-lawyer/',
@@ -263,6 +418,35 @@ export const languagePages = [
       'We can collect basic intake information in your preferred language and confirm what documents or facts the attorney needs next.',
       'The firm reviews humanitarian relief, family petitions, removal defense, employment immigration, O visas, NIW, and federal court immigration matters.',
       'If the matter involves detention, a hearing notice, or a short deadline, call after you submit the form.',
+    ],
+    sections: [
+      {
+        title: 'Ukrainian humanitarian parole, TPS, and asylum',
+        body:
+          'Ukrainian nationals may have options under humanitarian parole, Temporary Protected Status, asylum, or related humanitarian relief depending on entry date, current status, and filing deadlines. The firm reviews the specific timeline, entry record, and current agency guidance before recommending a path.',
+      },
+      {
+        title: 'Ukrainian family reunification and adjustment',
+        body:
+          'Family-based petitions for Ukrainian nationals may involve spouses, children, parents, and siblings. The office reviews relationship evidence, priority date timing, consular processing needs, and any prior filing history that could affect the case.',
+      },
+      {
+        title: 'Ukrainian-speaking removal defense and federal court relief',
+        body:
+          'When a Ukrainian-speaking client faces removal proceedings, the office reviews the Notice to Appear, court venue, prior filings, and available relief. Federal court options including habeas, mandamus, and APA actions may be available when agency delay or wrongful denial affects the case.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What immigration options are available for Ukrainian nationals right now?',
+        answer:
+          'Options may include humanitarian parole, TPS, asylum, or family-based petitions depending on entry date, current status, and filing deadlines. The firm reviews the specific facts and current agency guidance during attorney review.',
+      },
+      {
+        question: 'Can the firm help with a Ukrainian parole application or re-parole?',
+        answer:
+          'Yes. The firm reviews parole eligibility, filing timing, and the documentation needed to support the application based on current USCIS guidance.',
+      },
     ],
   },
 ];

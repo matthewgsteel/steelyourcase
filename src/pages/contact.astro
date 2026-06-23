@@ -28,7 +28,7 @@ const defaultMatterTypes = matterTypes.Immigration;
         notary matters. If the matter involves a short deadline, call after submitting.
       </p>
     </div>
-    <aside class="page-summary-card">
+    <aside class="page-summary-card" data-nosnippet>
       <h2>Direct contact</h2>
       <ul>
         <li><a href={`tel:${firm.phoneNumeric}`}>{firm.phoneDisplay}</a></li>
@@ -121,7 +121,7 @@ const defaultMatterTypes = matterTypes.Immigration;
       </form>
     </div>
 
-    <aside class="sidebar-panel">
+    <aside class="sidebar-panel" data-nosnippet>
       <h2>Best for this form</h2>
       <ul class="bullet-list">
         <li>Deadline triage and first review routing</li>
@@ -138,7 +138,7 @@ const defaultMatterTypes = matterTypes.Immigration;
     </aside>
   </section>
 
-  <section class="notice-strip container">
+  <section class="notice-strip container" data-nosnippet>
     <p>{legalDisclaimers.privacy}</p>
   </section>
 </BaseLayout>

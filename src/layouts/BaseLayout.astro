@@ -43,13 +43,17 @@ const pageTitle = path === '/' ? title : `${title} | ${firm.name}`;
   </head>
   <body data-site-path={path} data-turnstile-site-key={import.meta.env.TURNSTILE_SITE_KEY ?? ''}>
     <div class="site-shell">
-      <Header />
+      <div data-nosnippet>
+        <Header />
+      </div>
       <main id="main-content">
         <slot />
       </main>
-      <Footer />
-      <RecordRoomAssistant />
-      <SteelAnthem />
+      <div data-nosnippet>
+        <Footer />
+        <RecordRoomAssistant />
+        <SteelAnthem />
+      </div>
     </div>
   </body>
 </html>

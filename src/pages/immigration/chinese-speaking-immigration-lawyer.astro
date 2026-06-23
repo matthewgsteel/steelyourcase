@@ -1,17 +1,21 @@
 ---
 import LanguagePage from '@/components/LanguagePage.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { breadcrumbSchema } from '@/lib/seo';
+import { breadcrumbSchema, faqSchema } from '@/lib/seo';
 import { languagePages } from '@/lib/site';
 
 const page = languagePages[2];
+const schemas = [
+  breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/immigration/', label: 'Immigration' }, { href: page.path, label: page.title }]),
+  faqSchema(page.faqs ?? []),
+].filter(Boolean);
 ---
 
 <BaseLayout
   title={page.title}
   description={page.intro}
   path={page.path}
-  schemas={[breadcrumbSchema([{ href: '/', label: 'Home' }, { href: '/immigration/', label: 'Immigration' }, { href: page.path, label: page.title }])]}
+  schemas={schemas}
 >
-  <LanguagePage headline={page.headline} intro={page.intro} lines={page.lines} />
+  <LanguagePage headline={page.headline} intro={page.intro} lines={page.lines} sections={page.sections} faqs={page.faqs} />
 </BaseLayout>
